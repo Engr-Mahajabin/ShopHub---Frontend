@@ -9,6 +9,9 @@ export default function TestimonialsSection() {
     return (
         <section className="py-16 container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-4 text-center">What Our Customers Say</h2>
+            <p className="text-center mb-12 max-w-2xl mx-auto">
+                Join thousands of satisfied customers who trust ShopHub for their shopping needs
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {testimonials.map((t, idx) => (
                     <div key={idx} className="border p-6 rounded-lg hover:shadow-lg transition">

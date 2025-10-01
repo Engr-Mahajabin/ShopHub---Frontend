@@ -1,19 +1,3 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// export default function Navbar() {
-//     return (
-//         <nav className="bg-blue-600 text-white p-4 flex justify-between">
-//             <Link to="/" className="font-bold text-xl">🛒 MyShop</Link>
-//             <div className="space-x-4">
-//                 <Link to="/products">Products</Link>
-//                 <Link to="/cart">Cart</Link>
-//                 <Link to="/login">Login</Link>
-//             </div>
-//         </nav>
-//     );
-// }
-
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -43,7 +27,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-white border-b sticky top-0 z-50 shadow">
+        <nav className="bg-white sticky top-0 z-50 shadow">
             <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                 {/* Logo */}
                 <Link to="/" className="text-2xl font-bold flex items-center gap-2 text-blue-600">
