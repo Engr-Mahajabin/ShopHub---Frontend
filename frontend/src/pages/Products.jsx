@@ -137,8 +137,8 @@ function Products() {
                                 <div className="p-4 pt-0">
                                     <button
                                         className={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-md text-white font-medium ${product.stock === 0
-                                                ? "bg-gray-400 cursor-not-allowed"
-                                                : "bg-blue-600 hover:bg-blue-700"
+                                            ? "bg-gray-400 cursor-not-allowed"
+                                            : "bg-blue-600 hover:bg-blue-700"
                                             }`}
                                         onClick={() => handleAddToCart(product._id)}
                                         disabled={product.stock === 0}
