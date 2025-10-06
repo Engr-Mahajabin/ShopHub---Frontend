@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { ShoppingBag } from "lucide-react";
 
 
 export default function Cart() {
@@ -29,7 +30,21 @@ export default function Cart() {
                 {/* Cart Items */}
                 <div className="lg:col-span-2 space-y-4">
                     {cart.length === 0 ? (
-                        <p>Your cart is empty.</p>
+                        <div className="flex flex-col items-center justify-center border rounded-2xl shadow-sm py-20 bg-white">
+                            <div className="text-gray-500 mb-4">
+                                <ShoppingBag className="h-15 w-15" />
+                            </div>
+
+                            <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
+                            <p className="text-gray-500 mb-6">Add some products to get started</p>
+
+                            <button
+                                onClick={() => navigate("/products")}
+                                className="bg-black text-white px-5 py-2 rounded-md hover:bg-gray-800"
+                            >
+                                Browse Products
+                            </button>
+                        </div>
                     ) : (
                         cart.map((item) => (
                             <div key={item._id} className="flex items-center border p-4 rounded-lg">
