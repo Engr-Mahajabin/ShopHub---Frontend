@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles, ChevronDown } from "lucide-react";
+import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles } from "lucide-react";
 
 export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -56,7 +56,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Categories Dropdown */}
-                    <div className="relative group">
+                    {/* <div className="relative group">
                         <button className="flex items-center gap-1 hover:text-blue-600">
                             Categories <ChevronDown className="h-4 w-4" />
                         </button>
@@ -71,7 +71,7 @@ export default function Navbar() {
                                 </Link>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
 
                     <Link to="/about" className="hover:text-blue-600 flex items-center gap-1">
                         <Info className="h-4 w-4" /> About

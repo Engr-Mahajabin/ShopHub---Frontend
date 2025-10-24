@@ -3,6 +3,7 @@ import { Search, ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -109,31 +110,32 @@ function Products() {
                                 key={product._id}
                                 className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition"
                             >
-                                <div className="h-48 bg-gray-100 flex items-center justify-center">
-                                    <img
-                                        src={product.imageUrl}
-                                        alt={product.name}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-
-                                <div className="p-4">
-                                    <h3 className="font-semibold text-lg mb-2 hover:text-blue-600 cursor-pointer">
-                                        {product.name}
-                                    </h3>
-                                    <p className="text-sm text-gray-500 mb-2 line-clamp-2">
-                                        {product.description}
-                                    </p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xl font-bold">${product.price}</span>
-                                        <span className="text-xs text-gray-500">
-                                            {product.stock > 0
-                                                ? `${product.stock} in stock`
-                                                : "Out of stock"}
-                                        </span>
+                                <Link to={`/products/${product._id}`}>
+                                    <div className="h-48 bg-gray-100 flex items-center justify-center">
+                                        <img
+                                            src={product.imageUrl}
+                                            alt={product.name}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
-                                </div>
 
+                                    <div className="p-4">
+                                        <h3 className="font-semibold text-lg mb-2 hover:text-blue-600 cursor-pointer">
+                                            {product.name}
+                                        </h3>
+                                        <p className="text-sm text-gray-500 mb-2 line-clamp-2">
+                                            {product.description}
+                                        </p>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-xl font-bold">${product.price}</span>
+                                            <span className="text-xs text-gray-500">
+                                                {product.stock > 0
+                                                    ? `${product.stock} in stock`
+                                                    : "Out of stock"}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </Link>
                                 <div className="p-4 pt-0">
                                     <button
                                         className={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-md text-white font-medium ${product.stock === 0

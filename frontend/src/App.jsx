@@ -11,6 +11,7 @@ import { CartProvider } from "./context/CartContext";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { AuthProvider } from "./context/AuthContext";
+import { SignIn } from "@clerk/clerk-react";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/products" element={<Products />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/login" element={<Login />} />

@@ -7,7 +7,7 @@ export default function FeaturedProductsSection() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/products") // adjust backend URL/port if needed
+        fetch("http://localhost:5000/api/products")
             .then(res => res.json())
             .then(data => {
                 const featured = data.filter(p => p.featured);
@@ -76,7 +76,7 @@ export default function FeaturedProductsSection() {
                                 {/* Add to Cart */}
                                 <button
                                     onClick={() => handleAddToCart(p)}
-                                    className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-gray-800 flex items-center justify-center gap-2"
+                                    className="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 flex items-center justify-center gap-2"
                                 >
                                     🛒 Add to Cart
                                 </button>
