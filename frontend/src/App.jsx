@@ -11,7 +11,7 @@ import { CartProvider } from "./context/CartContext";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { AuthProvider } from "./context/AuthContext";
-import { SignIn } from "@clerk/clerk-react";
+// import { SignIn } from "@clerk/clerk-react";
 
 function App() {
   return (
