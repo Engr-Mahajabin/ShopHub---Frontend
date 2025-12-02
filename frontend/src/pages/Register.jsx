@@ -17,19 +17,25 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (formData.password !== formData.confirmPassword) {
             alert("Passwords do not match");
             return;
         }
+
         try {
-            // const res = await axios.post("http://localhost:5000/api/users", {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/users`, {
-                name: formData.name,
-                email: formData.email,
-                password: formData.password
-            });
+            // Register API (POST /api/users)
+            const res = await axios.post(
+                `${import.meta.env.VITE_API_URL}`,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password
+                }
+            );
+
             alert("User registered successfully!");
-            navigate("/login"); // redirect to login page
+            navigate("/login");
         } catch (err) {
             console.error(err);
             alert("Registration failed. Check console for error.");

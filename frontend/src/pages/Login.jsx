@@ -16,15 +16,19 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const res = await axios.post("http://localhost:5000/login", {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
-                email: formData.email,
-                password: formData.password
-            });
-            // Assuming backend returns a token
+            const res = await axios.post(
+                `${import.meta.env.VITE_API_URL}/login`,
+                {
+                    email: formData.email,
+                    password: formData.password
+                }
+            );
+
+            // Save token
             localStorage.setItem("token", res.data.token);
+
             alert("Login successful!");
-            navigate("/"); // redirect to user dashboard or home page
+            navigate("/");
         } catch (err) {
             console.error(err);
             alert("Login failed. Check your credentials.");
@@ -62,7 +66,7 @@ export default function Login() {
             </form>
 
             <p className="mt-4 text-center">
-                Don’t have an account?{" "}
+                Don't have an account?{" "}
                 <Link to="/register" className="text-blue-600 underline">
                     Register
                 </Link>
@@ -70,6 +74,3 @@ export default function Login() {
         </div>
     );
 }
-
-
-
