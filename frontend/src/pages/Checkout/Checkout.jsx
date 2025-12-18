@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
-export default function CheckoutPage() {
+export default function Checkout() {
     const { cart, clearCart } = useContext(CartContext);
     const navigate = useNavigate();
     const [shippingAddress, setShippingAddress] = useState("");

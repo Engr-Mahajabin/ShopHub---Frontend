@@ -1,7 +1,9 @@
 import React from "react";
-import { useCart } from "../context/CartContext";
+
 import { useNavigate } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
+import useCart from "../../hooks/useCart";
+// import { useCart } from "../../context/CartContext";
 
 export default function Cart() {
     const { cart, removeFromCart, updateQuantity, clearCart } = useCart();

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles } from "lucide-react";
+import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles, ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -73,6 +73,9 @@ export default function Navbar() {
                         </div>
                     </div> */}
 
+                    <Link to="/vendors" className="hover:text-blue-600 flex items-center gap-1">
+                        <ShoppingBag className="h-4 w-4" /> All Vendors
+                    </Link>
                     <Link to="/about" className="hover:text-blue-600 flex items-center gap-1">
                         <Info className="h-4 w-4" /> About
                     </Link>

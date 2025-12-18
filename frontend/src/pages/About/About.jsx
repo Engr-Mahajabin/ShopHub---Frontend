@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Target, Eye, Award, Users, TrendingUp, Heart } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+// import Footer from "../../components/Footer";
+// import Navbar from "../../components/Navbar";
 
 export default function About() {
     return (
         <div className="min-h-screen bg-background">
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Hero Section */}
             <section className="bg-gradient-to-br from-blue-100 via-blue-50 to-white py-20">
@@ -136,7 +136,7 @@ export default function About() {
             </section>
 
             {/* Footer */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ShoppingCart, ArrowLeft, Minus, Plus } from "lucide-react";
-import Navbar from "../components/Navbar";
-import { useCart } from "../context/CartContext";
+// import { useCart } from "../../context/CartContext";
+// import Navbar from "../../components/Navbar";
+import useCart from "../../hooks/useCart";
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -40,7 +41,7 @@ const ProductDetail = () => {
     if (loading) {
         return (
             <div className="min-h-screen bg-gray-50">
-                <Navbar />
+                {/* <Navbar /> */}
                 <div className="container mx-auto px-4 py-10">
                     <div className="animate-pulse space-y-6">
                         <div className="h-6 w-32 bg-gray-300 rounded"></div>
@@ -62,7 +63,7 @@ const ProductDetail = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <Navbar />
+            {/* <Navbar /> */}
 
             <div className="container mx-auto px-4 py-8">
                 {/* Back Button */}

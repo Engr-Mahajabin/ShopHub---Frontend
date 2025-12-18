@@ -6,13 +6,13 @@ import FeaturedProductsSection from "./FeaturedProductsSection";
 import CategoriesSection from "./CategoriesSection";
 import TestimonialsSection from "./TestimonialsSection";
 import NewsletterSection from "./NewsletterSection";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+// import Navbar from "../../components/Navbar";
+// import Footer from "../../components/Footer";
 
 export default function Home() {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <HeroSection />
             <StatsSection />
             <FeaturesSection />
@@ -20,7 +20,7 @@ export default function Home() {
             <CategoriesSection />
             <TestimonialsSection />
             <NewsletterSection />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

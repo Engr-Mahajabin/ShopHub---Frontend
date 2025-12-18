@@ -8,8 +8,9 @@ import {
     Send,
     MessageSquare,
 } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
+// import Navbar from "../../components/Navbar";
+// import Footer from "../../components/Footer";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ export default function Contact() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Hero */}
             <section className="bg-gradient-to-br from-blue-50 via-blue-100 to-gray-50 py-20">
@@ -212,7 +213,7 @@ export default function Contact() {
             </section>
 
             {/* Footer */}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

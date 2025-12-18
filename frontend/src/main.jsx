@@ -1,21 +1,20 @@
 import React from "react";
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-// import { ClerkProvider } from '@clerk/clerk-react'
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/Routes";
+import { AuthProvider } from "./providers/AuthProvider";
+// import { CartProvider } from "./hooks/useCart";
+import "./index.css";
+import CartProvider from "./providers/CartProvider";
 
-// const clerk_key = import.meta.env.VITE_CLERK_KEY;
-// console.log("Clerk key is:", clerk_key);
-
-// if (!clerk_key) {
-//   throw new Error("VITE_CLERK_KEY is missing");
-// }
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/* <ClerkProvider publishableKey={clerk_key}> */}
-    <App />
-    {/* </ClerkProvider> */}
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    {/* <AuthProvider> */}
+    <CartProvider>
+      <RouterProvider router={router} >
+        <AuthProvider></AuthProvider>
+      </RouterProvider>
+    </CartProvider>
+    {/* </AuthProvider> */}
+  </React.StrictMode>
+);

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
 export default function ProductCard({ product }) {
     return (
         <div className="border p-4 rounded shadow hover:shadow-lg transition">
