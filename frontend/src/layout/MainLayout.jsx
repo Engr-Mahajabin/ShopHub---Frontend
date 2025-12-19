@@ -8,7 +8,7 @@ const Main = () => {
     const location = useLocation();
 
     // Exclude login/signup pages from NavBar/Footer
-    const excludedPaths = ['/login', '/register'];
+    const excludedPaths = ['/admin/login', '/login', '/register'];
     const showNavFooter = !excludedPaths.includes(location.pathname);
 
     return (

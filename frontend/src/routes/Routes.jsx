@@ -1,5 +1,7 @@
 import { createBrowserRouter, Outlet, Navigate } from "react-router-dom";
+import { lazy } from "react";
 
+// Layouts
 import MainLayout from "../layout/MainLayout";
 import Dashboard from "../layout/Dashboard";
 
@@ -10,8 +12,14 @@ import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import VendorShop from "../pages/VendorShop/VendorShop";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
-import Login from "../pages/Auth/Login";
-import Register from "../pages/Auth/Register";
+
+
+const AdminLogin = lazy(() => import('../pages/Auth/AdminLogin'));
+const Login = lazy(() => import('../pages/Auth/Login'));
+const Register = lazy(() => import('../pages/Auth/Register'));
+
+// import Login from "../pages/Auth/Login";
+// import Register from "../pages/Auth/Register";
 import NotFound from "../pages/NotFound/NotFound";
 
 import Cart from "../pages/Cart/Cart";
@@ -52,6 +60,7 @@ export const router = createBrowserRouter([
             { path: "vendors", element: <VendorShop /> },
             { path: "about", element: <About /> },
             { path: "contact", element: <Contact /> },
+            { path: "admin/login", element: <AdminLogin /> },
             { path: "login", element: <Login /> },
             { path: "register", element: <Register /> },
             { path: "cart", element: <Cart /> },

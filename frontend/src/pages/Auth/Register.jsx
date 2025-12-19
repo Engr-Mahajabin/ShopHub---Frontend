@@ -21,39 +21,40 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Register User:", formData);
 
-        if (formData.password !== formData.confirmPassword) {
-            alert("Passwords do not match");
-            return;
-        }
+        // if (formData.password !== formData.confirmPassword) {
+        //     alert("Passwords do not match");
+        //     return;
+        // }
 
-        try {
-            setLoading(true);
+        // try {
+        //     setLoading(true);
 
-            const res = await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/users`,
-                // "https://shophub-2g5d.onrender.com/api/users",
-                {
-                    type: "register",
-                    name: formData.name,
-                    email: formData.email,
-                    password: formData.password,
-                    role: formData.role
-                }
-            );
+        //     const res = await axios.post(
+        //         `${import.meta.env.VITE_API_URL}/api/users/register`,
+        //         // "https://shophub-2g5d.onrender.com/api/users",
+        //         {
+        //             type: "register",
+        //             name: formData.name,
+        //             email: formData.email,
+        //             password: formData.password,
+        //             role: formData.role
+        //         }
+        //     );
 
-            // 🔐 Save JWT + user (auto login after register)
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("user", JSON.stringify(res.data.user));
+        //     // 🔐 Save JWT + user (auto login after register)
+        //     localStorage.setItem("token", res.data.token);
+        //     localStorage.setItem("user", JSON.stringify(res.data.user));
 
-            alert("Registration successful");
-            navigate("/");
-        } catch (err) {
-            console.error(err);
-            alert(err.response?.data?.message || "Registration failed");
-        } finally {
-            setLoading(false);
-        }
+        //     alert("Registration successful");
+        //     navigate("/");
+        // } catch (err) {
+        //     console.error(err);
+        //     alert(err.response?.data?.message || "Registration failed");
+        // } finally {
+        //     setLoading(false);
+        // }
     };
 
     return (
