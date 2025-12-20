@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Package } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { admin_login } from "../../store/Reducers/authSlice";
+import { admin_login } from "../../store/Reducers/authSlice.js";
 
 export default function Login() {
     const dispatch = useDispatch();
