@@ -15,7 +15,7 @@ export const admin_login = createAsyncThunk(
       );
       console.log("Admin Login Response:", data);
     } catch (error) {
-      console.error("Admin Login Error:", error);
+      console.error("Admin Login Error:", error.response.data);
     }
   }
 );
