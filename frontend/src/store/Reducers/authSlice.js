@@ -1,18 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import api from "../../api/axios";
 
 export const admin_login = createAsyncThunk(
   "auth/admin_login",
   async (info) => {
-    console.log("Admin Login Info:", info);
+    // console.log("Admin Login Info:", info);
     try {
-      const { data } = await axios.post(
-        "http://localhost:5000/api/admin/admin-login", // It'll not work without full backend api URL
-        info,
-        {
-          withCredentials: true,
-        }
-      );
+      const { data } = await api.post("/admin-login", info, {
+        withCredentials: true,
+      });
       console.log("Admin Login Response:", data);
     } catch (error) {
       console.error("Admin Login Error:", error.response.data);
