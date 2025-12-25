@@ -34,10 +34,12 @@ import { AuthProvider } from "./providers/AuthProvider";
 import CartProvider from "./providers/CartProvider";
 
 import "./index.css";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <BrowserRouter>
   <React.StrictMode>
+    <Toaster position="top-right" />
     <Provider store={store}>
       {/* <AuthProvider> */}
       <CartProvider>
