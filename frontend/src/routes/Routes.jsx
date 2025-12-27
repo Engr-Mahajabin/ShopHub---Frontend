@@ -46,7 +46,7 @@ import Checkout from "../pages/Checkout/Checkout";
 // Route Guards
 import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
-import VendorRoutes from "./VendorRoutes";
+import SellerRoutes from "./SellerRoutes";
 
 export const router = createBrowserRouter([
     // ---------------- Public Layout ----------------
@@ -91,10 +91,11 @@ export const router = createBrowserRouter([
             //     ],
             // },
 
-            // ---------------- Vendor Routes ----------------
+            // ---------------- Seller Routes ----------------
             {
-                path: "vendor",
-                element: <VendorRoutes><Outlet /></VendorRoutes>,
+                path: "seller",
+                element: <SellerRoutes><Outlet /></SellerRoutes>,
+                ability: ['admin', 'seller']
                 // children: [
                 //     { index: true, element: <VendorHome /> },
                 //     { path: "products", element: <VendorProducts /> },
