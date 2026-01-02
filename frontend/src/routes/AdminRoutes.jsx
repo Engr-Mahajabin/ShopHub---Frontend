@@ -23,7 +23,7 @@ const AdminDashboard = lazy(() => import("../pages/Dashboard/Admin/AdminDashboar
 
 const AdminRoutes = [
     {
-        Path: "admin/admindashboard",
+        Path: "admin/dashboard",
         element: <AdminDashboard></AdminDashboard>,
         role: 'admin'
     }

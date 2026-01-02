@@ -3,7 +3,7 @@ import { lazy } from "react";
 
 // Layouts
 import MainLayout from "../layout/MainLayout";
-import Dashboard from "../layout/Dashboard";
+import DashboardLayout from "../layout/DashboardLayout";
 
 // Public Pages
 import Home from "../pages/Home/Home";
@@ -47,6 +47,7 @@ import Checkout from "../pages/Checkout/Checkout";
 import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
 import SellerRoutes from "./SellerRoutes";
+import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
 
 export const router = createBrowserRouter([
     // ---------------- Public Layout ----------------
@@ -73,12 +74,12 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: (
             <PrivateRoutes>
-                <Dashboard />
+                <DashboardLayout />
             </PrivateRoutes>
         ),
         children: [
             // Default route for /dashboard
-            { index: true, element: <Navigate to="/dashboard/user" replace /> },
+            { index: true, element: <Navigate to="/dashboard/admin" replace /> },
 
             // ---------------- User Routes ----------------
             // {
@@ -108,12 +109,13 @@ export const router = createBrowserRouter([
             {
                 path: "admin",
                 element: <AdminRoutes><Outlet /></AdminRoutes>,
-                // children: [
-                //     { index: true, element: <AdminHome /> },
-                //     { path: "users", element: <AllUsers /> },
-                //     { path: "vendors", element: <AllVendors /> },
-                //     { path: "reports", element: <Reports /> },
-                // ],
+                children: [
+                    { path: "admindashboard", element: <AdminDashboard /> },
+                    //     { index: true, element: <AdminHome /> },
+                    //     { path: "users", element: <AllUsers /> },
+                    //     { path: "vendors", element: <AllVendors /> },
+                    //     { path: "reports", element: <Reports /> },
+                ],
             },
         ],
     },

@@ -23,12 +23,14 @@
 // export default VendorRoutes;
 
 import { lazy } from "react";
-const SellerDashboard = lazy(() => import("../pages/Dashboard/Seller/SellerDashboard"));
+const Home = lazy(() => import("../pages/Home/Home"));
+// const SellerDashboard = lazy(() => import("../pages/Dashboard/Seller/SellerDashboard"));
 
 const SellerRoutes = [
     {
-        path: "seller/sellerdashboard",
-        element: <SellerDashboard></SellerDashboard>,
+        path: "/",
+        // element: <SellerDashboard></SellerDashboard>,
+        element: <Home />,
         ability: ['admin', 'seller']
     }
 ]

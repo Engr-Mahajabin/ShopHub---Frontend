@@ -35,6 +35,7 @@ import CartProvider from "./providers/CartProvider";
 
 import "./index.css";
 import { Toaster } from "react-hot-toast";
+// import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <BrowserRouter>
@@ -45,7 +46,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <CartProvider>
         <Suspense>
           <RouterProvider router={router}>
-            <AuthProvider></AuthProvider>
+            <AuthProvider>
+              {/* <App /> */}
+            </AuthProvider>
           </RouterProvider>
         </Suspense>
       </CartProvider>

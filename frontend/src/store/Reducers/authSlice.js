@@ -9,7 +9,7 @@ export const admin_login = createAsyncThunk(
       const { data } = await api.post("/admin-login", info, {
         withCredentials: true,
       });
-      //console.log("Admin Login Response:", data);
+      console.log("Admin Login Response:", data);
       localStorage.setItem("access-token", data.token);
       return fulfillWithValue(data);
     } catch (error) {
@@ -51,6 +51,9 @@ const authSlice = createSlice({
       .addCase(admin_login.fulfilled, (state, { payload }) => {
         state.loader = false;
         state.successMessage = payload.message;
+        // state.userInfo = payload?.admin || null; // Admin will be stored on redux
+        //state.userInfo = payload.data;
+        state.userInfo = payload.admin;
       });
   },
 });
