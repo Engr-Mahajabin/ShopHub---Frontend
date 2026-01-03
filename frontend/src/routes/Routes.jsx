@@ -13,13 +13,11 @@ import VendorShop from "../pages/VendorShop/VendorShop";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 
-
+// Auth pages
 const AdminLogin = lazy(() => import('../pages/Auth/AdminLogin'));
 const Login = lazy(() => import('../pages/Auth/Login'));
 const Register = lazy(() => import('../pages/Auth/Register'));
 
-// import Login from "../pages/Auth/Login";
-// import Register from "../pages/Auth/Register";
 import NotFound from "../pages/NotFound/NotFound";
 
 import Cart from "../pages/Cart/Cart";
@@ -48,6 +46,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
 import SellerRoutes from "./SellerRoutes";
 import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
+import SellerDashboard from "../pages/Dashboard/Seller/SellerDashboard";
 
 export const router = createBrowserRouter([
     // ---------------- Public Layout ----------------
@@ -79,7 +78,34 @@ export const router = createBrowserRouter([
         ),
         children: [
             // Default route for /dashboard
-            { index: true, element: <Navigate to="/dashboard/admin" replace /> },
+            // { index: true, element: <Navigate to="/dashboard" replace /> },
+
+            // ---------------- Admin Routes ----------------
+            {
+                path: "admin",
+                element: <AdminRoutes><Outlet /></AdminRoutes>,
+                children: [
+                    { index: true, element: <AdminDashboard /> },
+                    //     { index: true, element: <AdminHome /> },
+                    //     { path: "users", element: <AllUsers /> },
+                    //     { path: "vendors", element: <AllVendors /> },
+                    //     { path: "reports", element: <Reports /> },
+                ],
+            },
+
+            // ---------------- Seller Routes ----------------
+            {
+                path: "seller",
+                element: <SellerRoutes><Outlet /></SellerRoutes>,
+                ability: ['admin', 'seller'],
+                children: [
+                    { index: true, element: <SellerDashboard /> },
+                    //     { index: true, element: <VendorHome /> },
+                    //     { path: "products", element: <VendorProducts /> },
+                    //     { path: "add-product", element: <AddProduct /> },
+                    //     { path: "orders", element: <VendorOrders /> },
+                ],
+            },
 
             // ---------------- User Routes ----------------
             // {
@@ -92,31 +118,6 @@ export const router = createBrowserRouter([
             //     ],
             // },
 
-            // ---------------- Seller Routes ----------------
-            {
-                path: "seller",
-                element: <SellerRoutes><Outlet /></SellerRoutes>,
-                ability: ['admin', 'seller']
-                // children: [
-                //     { index: true, element: <VendorHome /> },
-                //     { path: "products", element: <VendorProducts /> },
-                //     { path: "add-product", element: <AddProduct /> },
-                //     { path: "orders", element: <VendorOrders /> },
-                // ],
-            },
-
-            // ---------------- Admin Routes ----------------
-            {
-                path: "admin",
-                element: <AdminRoutes><Outlet /></AdminRoutes>,
-                children: [
-                    { path: "admindashboard", element: <AdminDashboard /> },
-                    //     { index: true, element: <AdminHome /> },
-                    //     { path: "users", element: <AllUsers /> },
-                    //     { path: "vendors", element: <AllVendors /> },
-                    //     { path: "reports", element: <Reports /> },
-                ],
-            },
         ],
     },
 

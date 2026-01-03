@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles, ShoppingBag } from "lucide-react";
+import { ShoppingCart, User, Search, Menu, Package, Mail, Info, Sparkles, ShoppingBag, LayoutDashboard } from "lucide-react";
 
 export default function Navbar() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -82,9 +82,12 @@ export default function Navbar() {
                     <Link to="/contact" className="hover:text-blue-600 flex items-center gap-1">
                         <Mail className="h-4 w-4" /> Contact
                     </Link>
+                    <Link to="/dashboard" className="hover:text-blue-600 flex items-center gap-1">
+                        <LayoutDashboard className="h-4 w-4" /> Dashboard
+                    </Link>
                 </div>
 
-                {/* Right Icons */}
+                {/* Cart Icons */}
                 <div className="flex items-center gap-3">
                     {/* Cart */}
                     <Link to="/cart" className="relative">

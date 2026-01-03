@@ -51,9 +51,7 @@ const authSlice = createSlice({
       .addCase(admin_login.fulfilled, (state, { payload }) => {
         state.loader = false;
         state.successMessage = payload.message;
-        // state.userInfo = payload?.admin || null; // Admin will be stored on redux
-        //state.userInfo = payload.data;
-        state.userInfo = payload.admin;
+        state.userInfo = payload.admin || null;
       });
   },
 });

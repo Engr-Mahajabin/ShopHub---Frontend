@@ -1,29 +1,25 @@
-// import { Navigate, useLocation } from "react-router-dom";
-// import useAuth from "../hooks/useAuth";
+// import React from "react";
 
-// export default function PrivateRoutes({ children }) {
-//     const { user, loading } = useAuth();
-//     const location = useLocation();
+// import AdminRoutes from "./AdminRoutes";
+// import SellerRoutes from "./SellerRoutes";
 
-//     if (loading) {
-//         return <div className="text-center mt-10">Loading...</div>;
-//     }
+// const PrivateRoutes = [
+//     ...AdminRoutes,
+//     ...SellerRoutes
+// ];
 
-//     if (user) {
-//         return children;
-//     }
+// export default PrivateRoutes;
 
-//     return (
-//         <Navigate to="/login" state={{ from: location }} replace />
-//     );
-// }
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-import AdminRoutes from "./AdminRoutes";
-import SellerRoutes from "./SellerRoutes";
+const PrivateRoutes = ({ children }) => {
+    const { userInfo } = useSelector(state => state.auth);
 
-const PrivateRoutes = [
-    ...AdminRoutes,
-    ...SellerRoutes
-];
+    if (!userInfo) {
+        return <Navigate to="/login" replace />;
+    }
 
+    return children ? children : <Outlet />;
+};
 export default PrivateRoutes;

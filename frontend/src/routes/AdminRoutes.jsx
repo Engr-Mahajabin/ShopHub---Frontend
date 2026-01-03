@@ -1,33 +1,27 @@
-// import { Navigate } from "react-router-dom";
-// import useAuth from "../hooks/useAuth";
-// import useAdmin from "../hooks/useAdmin";
+// import { lazy } from "react";
+// const AdminDashboard = lazy(() => import("../pages/Dashboard/Admin/AdminDashboard"));
 
-// const AdminRoutes = ({ children }) => {
-//     const { user, loading } = useAuth();
-//     const isAdmin = useAdmin();
-
-//     if (loading) {
-//         return <div className="text-center mt-10">Loading...</div>;
+// const AdminRoutes = [
+//     {
+//         Path: "admin/dashboard",
+//         element: <AdminDashboard></AdminDashboard>,
+//         role: 'admin'
 //     }
+// ];
 
-//     if (user && isAdmin) {
-//         return children;
-//     }
+// export default AdminRoutes;
 
-//     return <Navigate to="/" replace />;
-// };
-// export default AdminRoutes
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { lazy } from "react";
-const AdminDashboard = lazy(() => import("../pages/Dashboard/Admin/AdminDashboard"));
+const AdminRoutes = () => {
+    const { user } = useSelector(state => state.auth);
 
-const AdminRoutes = [
-    {
-        Path: "admin/dashboard",
-        element: <AdminDashboard></AdminDashboard>,
-        role: 'admin'
+    if (user?.role !== "admin") {
+        return <Navigate to="/login" replace />;
     }
-];
 
+    return <Outlet />;
+};
 
 export default AdminRoutes;
