@@ -1,5 +1,6 @@
 // import { lazy } from "react";
-// const AdminDashboard = lazy(() => import("../pages/Dashboard/Admin/AdminDashboard"));
+// const AdminDashboard = lazy(() => import("../pages/Dashboard/Admin/AdminDashboard"));;
+
 
 // const AdminRoutes = [
 //     {
@@ -11,17 +12,21 @@
 
 // export default AdminRoutes;
 
+
+import { useSelector } from "react-redux"
 import { Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-
 const AdminRoutes = () => {
-    const { user } = useSelector(state => state.auth);
+    const { userInfo, loader } = useSelector(state => state.auth);
 
-    if (user?.role !== "admin") {
-        return <Navigate to="/login" replace />;
+    // যতক্ষণ ডাটা লোড হচ্ছে, ততক্ষণ অপেক্ষা করো
+    if (loader) {
+        return <div>Loading...</div>; // এখানে একটা স্পিনার দিতে পারেন
     }
 
-    return <Outlet />;
-};
+    if (userInfo && userInfo.role === "admin") {
+        return <Outlet />;
+    }
 
+    return <Navigate to="/login" replace />;
+};
 export default AdminRoutes;

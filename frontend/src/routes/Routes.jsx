@@ -47,6 +47,8 @@ import AdminRoutes from "./AdminRoutes";
 import SellerRoutes from "./SellerRoutes";
 import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
 import SellerDashboard from "../pages/Dashboard/Seller/SellerDashboard";
+import AddVendor from "../pages/Dashboard/Admin/AddVendor";
+import AllVendors from "../pages/Dashboard/Admin/AllVendors";
 
 export const router = createBrowserRouter([
     // ---------------- Public Layout ----------------
@@ -85,6 +87,8 @@ export const router = createBrowserRouter([
                 path: "admin",
                 element: <AdminRoutes><Outlet /></AdminRoutes>,
                 children: [
+                    { path: "add-vendor", element: <AddVendor /> },
+                    { path: "all-vendors", element: <AllVendors /> },
                     { index: true, element: <AdminDashboard /> },
                     //     { index: true, element: <AdminHome /> },
                     //     { path: "users", element: <AllUsers /> },

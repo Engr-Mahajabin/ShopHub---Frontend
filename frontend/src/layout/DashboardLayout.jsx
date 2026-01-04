@@ -4,7 +4,7 @@ import DashboardHeader from "./DashboardHeader";
 
 export default function Dashboard() {
     return (
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen bg-blue-300">
             <DashboardSidebar />
             <div className="flex-1 p-8 bg-gray-100">
                 <DashboardHeader />
